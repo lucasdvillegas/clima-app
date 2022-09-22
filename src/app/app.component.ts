@@ -11,6 +11,8 @@ export class AppComponent implements OnInit{
 
   clima:any;
 
+  ciudad:string = '';
+
   constructor( private weatherService: WeatherService){
 
   }
@@ -33,6 +35,7 @@ export class AppComponent implements OnInit{
   enviarUbicacion(nombreCiudad: HTMLInputElement, codigoPais: HTMLInputElement){
     if(nombreCiudad.value && codigoPais.value){
       this.obtenerClima(nombreCiudad.value, codigoPais.value);
+      this.obtenerUbicacion(nombreCiudad);
       nombreCiudad.value = '';
       codigoPais.value = '';
     }else{
@@ -41,5 +44,9 @@ export class AppComponent implements OnInit{
     nombreCiudad.focus();
     return false;
   }
-  
+
+  obtenerUbicacion(nombreCiudad: HTMLInputElement){
+    return this.ciudad = nombreCiudad.value;
+  }
+
 }

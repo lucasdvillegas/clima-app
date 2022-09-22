@@ -3,7 +3,8 @@
      
     <div class="col-md-6">
       <div class="card card-body">
-        <img src="./../assets/clima-logo.png" alt="Clima aplicación logo"> <!-- Agregar una imagen después -->
+        <img  src="./../assets/clima-logo.png" 
+              alt="Clima aplicación logo" > <!-- Agregar una imagen después -->
 
         <form (submit)="enviarUbicacion(nombreCiudad, codigoPais)">
           <div class="form-group">
@@ -12,7 +13,9 @@
           <div class="form-group">
             <input type="text" class="form-control" placeholder="Código del país" #codigoPais>
           </div>
-          <button class="btn btn-primary btn-block mt-2"> Obtener clima</button>
+          <button class="btn btn-primary btn-block mt-2">
+             Obtener clima
+          </button>
         </form>
       </div>
     </div>

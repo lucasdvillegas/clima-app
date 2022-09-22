@@ -9,6 +9,8 @@ import { WeatherService } from './services/weather.service';
 })
 export class AppComponent implements OnInit{
 
+  clima:any;
+
   constructor( private weatherService: WeatherService){
 
   }
@@ -20,17 +22,24 @@ export class AppComponent implements OnInit{
   obtenerClima(nombreCiudad:string, codigoPais:string){
     this.weatherService.getWeather(nombreCiudad, codigoPais)
     .subscribe(
-      res => console.log(res),
+      res => {
+        console.log(res);
+        this.clima = res
+      },
       err => console.log(err)
     )
   }
   
   enviarUbicacion(nombreCiudad: HTMLInputElement, codigoPais: HTMLInputElement){
-    this.obtenerClima(nombreCiudad.value, codigoPais.value);
-
-    nombreCiudad.value = '';
-    codigoPais.value = '';
+    if(nombreCiudad.value && codigoPais.value){
+      this.obtenerClima(nombreCiudad.value, codigoPais.value);
+      nombreCiudad.value = '';
+      codigoPais.value = '';
+    }else{
+      alert('Por favor, ingresar algunos valores');
+    }
     nombreCiudad.focus();
     return false;
   }
+  
 }

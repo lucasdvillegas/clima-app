@@ -1,6 +1,6 @@
 <div class="container p-4">
   <div class="row">
-    <h1>hola mundo</h1>
+    <h1>Aplicación del clima</h1>
     <div class="col-md-6">
       <div class="card card-body">
         <img src="" alt=""> <!-- Agregar una imagen después -->
@@ -17,7 +17,14 @@
       </div>
     </div>
     <div class="col-md-6">
-
+      <div *ngIf="clima" class="card card-body">
+        <p>Temperatura: {{clima.main.temp}}</p>
+        <p>Latitud: {{clima.main.lat}}</p>
+        <p>Logitud: {{clima.coord.lon}}</p>
+        <p>Humedad: {{clima.main.humidity}}</p>
+        <p>Presión: {{clima.main.pressure}}</p>
+        <p>Descripción: {{clima.weather[0].description}}</p>
+      </div>
     </div>
 
   </div>
